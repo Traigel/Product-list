@@ -7,7 +7,7 @@ const initialState = {
     FavoritesProducts: [] as RootProductType[],
 }
 
-const reducer = (state = initialState, action: ActionType): InitialStateType => {
+export const reducer = (state = initialState, action: ActionType): InitialStateType => {
     switch (action.type) {
         case 'SET-PRODUCT-LIST':
             return {...state, productList: action.data};
@@ -28,7 +28,7 @@ export const setFavoritesProducts = (data: RootProductType) => ({type: 'SET-FAVO
 export const {dispatch, useStoreState} = createStore<InitialStateType, ActionType>(reducer, initialState)
 
 // types
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 type ActionType =
     | ReturnType<typeof setProductList>
     | ReturnType<typeof setProductCard>
