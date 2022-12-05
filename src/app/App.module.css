@@ -1,0 +1,30 @@
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: cadetblue;
+}
+
+.favorites {
+  width: 25%;
+  background-color: darkcyan;
+}
+
+.list {
+  align-items: center;
+  background-color: orange;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: powderblue;
+  border: 1px dashed #414141;
+  text-align: center;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}

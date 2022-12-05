@@ -1,0 +1,15 @@
+$textColor: #414141;
+$bgColor: #FFCC26;
+$secondBgColor: #FBFBFB;
+
+@mixin text($color, $fontSize) {
+  color: $color;
+  font-size: $fontSize;
+  line-height: 30px;
+
+  &:first-letter {
+    text-transform: uppercase;
+    font-size: $fontSize;
+    font-family: sans-serif;
+  }
+}

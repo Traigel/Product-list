@@ -2,10 +2,15 @@
 
 ---
 
-### Technologies:
+### Technologies / Libraries:
 - React
 - TypeScript
-
+- React-hooks-global-state
+- React-router-dom
+- Axios
+- React-window
+- React-virtualized-auto-sizer
+- SASS
 ---
 
 ### GitHub commits

@@ -1,0 +1,3 @@
+const COLUMN_COUNT = 4
+
+export {COLUMN_COUNT}
