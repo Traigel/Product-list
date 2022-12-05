@@ -1,22 +1,35 @@
-import { createStore  } from 'react-hooks-global-state';
+import {createStore} from 'react-hooks-global-state';
 import {RootProductType} from '../api';
 
 const initialState = {
-    products: null as RootProductType[] | null
+    productList: null as RootProductType[] | null,
+    productCard: null as RootProductType | null,
+    FavoritesProducts: [] as RootProductType[],
 }
 
-const reducer = (state: InitialStateType, action: SetCounterType): InitialStateType => {
+const reducer = (state = initialState, action: ActionType): InitialStateType => {
     switch (action.type) {
-        case 'SET-PRODUCTS': return { ...state, products: action.data };
-        default: return state;
+        case 'SET-PRODUCT-LIST':
+            return {...state, productList: action.data};
+        case 'SET-PRODUCT-CARD':
+            return {...state, productCard: action.data }
+        case 'SET-FAVORITES-PRODUCTS':
+            return {...state, FavoritesProducts: [...state.FavoritesProducts, action.data]}
+        default:
+            return state;
     }
 };
 
-export const setProducts = (data: RootProductType[]) => ({type: 'SET-PRODUCTS', data})
+// actions
+export const setProductList = (data: RootProductType[]) => ({type: 'SET-PRODUCT-LIST', data} as const)
+export const setProductCard = (data: RootProductType) => ({type: 'SET-PRODUCT-CARD', data} as const)
+export const setFavoritesProducts = (data: RootProductType) => ({type: 'SET-FAVORITES-PRODUCTS', data} as const)
 
-type SetCounterType = ReturnType<typeof setProducts>
+export const {dispatch, useStoreState} = createStore<InitialStateType, ActionType>(reducer, initialState)
+
+// types
 type InitialStateType = typeof initialState
-
-
-
-export const {dispatch, useStoreState } = createStore (reducer, initialState)
+type ActionType =
+    | ReturnType<typeof setProductList>
+    | ReturnType<typeof setProductCard>
+    | ReturnType<typeof setFavoritesProducts>
