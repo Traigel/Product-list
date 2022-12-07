@@ -13,17 +13,22 @@ export const ProductListItem = ({item, style}: ProductCardPropsType) => {
 
     const navigate = useNavigate()
 
-    const onClickHandler = () => {
-        // navigate(`/product/${item.id}`)
+    const onClickImgHandler = () => {
+        navigate(`/product/${item.id}`)
     }
 
     const onClickButtonHandler = () => {
         dispatch(setProductLike(item.id, !item.like))
     }
 
-    return <div style={style} onClick={onClickHandler}>
+    return <div style={style}>
         <div className={styles.itemComponent}>
-            <img src={`https://testbackend.nc-one.com${item.src}`} alt={item.name} className={styles.img}/>
+            <img
+                src={`https://testbackend.nc-one.com${item.src}`}
+                alt={item.name}
+                onClick={onClickImgHandler}
+                className={styles.img}
+            />
             <div className={styles.name}>{item.name}</div>
             <div className={styles.priceBox}>
                 <div className={styles.price}>$ {item.price}</div>

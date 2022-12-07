@@ -1,0 +1,29 @@
+@import "../../common/styles/Variablies";
+
+.productComponent {
+  width: 100%;
+  margin: 100px;
+  padding-top: 50px;
+
+  .img {
+    @include squareSize(450px);
+    margin-right: 20px;
+  }
+
+  .name {
+    @include text(64px, 96px);
+  }
+
+  .price {
+    font-weight: 500;
+    @include text(64px, 96px);
+  }
+
+  .button {
+    @include squareSize(85px);
+  }
+
+  .icon {
+    @include squareSize(65px);
+  }
+}

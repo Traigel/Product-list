@@ -4,13 +4,15 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import React from 'react';
 import {ProductCard} from '../../common/components';
 import {dispatch, setProductLike, useStoreState} from '../../state';
+import {useNavigate} from 'react-router-dom';
 
 export const FavoritesProductsList = () => {
+
+    const navigate = useNavigate()
 
     const favoritesProducts = useStoreState('FavoritesProducts')
 
     return <div className={styles.favoritesComponent}>
-
         <div className={styles.favoritesBox}>
             <div className={styles.title}>
                 Favorites
@@ -31,6 +33,10 @@ export const FavoritesProductsList = () => {
                                 dispatch(setProductLike(data[index].id, !data[index].like))
                             }
 
+                            const onClickImgHandler = () => {
+                                navigate(`/product/${data[index].id}`)
+                            }
+
                             return <div key={data[index].id} style={style}>
                                 <ProductCard
                                     img={data[index].src}
@@ -38,9 +44,11 @@ export const FavoritesProductsList = () => {
                                     price={data[index].price}
                                     like={data[index].like}
                                     onClickButton={onClickButtonHandler}
+                                    onClickImg={onClickImgHandler}
                                     classNameItemComponent={styles.favoriteItemComponent}
                                     classNameImg={styles.img}
                                     classNameTextName={styles.name}
+                                    classNamePrice={styles.price}
                                     classNameButton={styles.button}
                                     classNameIcon={styles.icon}
                                 />

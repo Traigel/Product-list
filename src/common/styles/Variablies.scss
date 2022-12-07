@@ -5,14 +5,12 @@ $secondBgColor: #FBFBFB;
 
 $headerHeight: 100px;
 
-@mixin text($color, $fontSize) {
-  color: $color;
-  font-size: $fontSize;
-  line-height: 30px;
+@mixin squareSize($size) {
+  width: $size;
+  height: $size;
+}
 
-  &:first-letter {
-    text-transform: uppercase;
-    font-size: $fontSize;
-    font-family: sans-serif;
-  }
+@mixin text($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
 }

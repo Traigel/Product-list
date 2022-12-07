@@ -1,4 +1,4 @@
-import {InitialStateType, reducer, setFavoritesProducts, setProductCard, setProductList} from './index';
+import {InitialStateType, reducer, setProductCard, setProductList} from './index';
 import {RootProductType} from '../api';
 
 let state: InitialStateType
@@ -35,7 +35,7 @@ test('set product card', () => {
     expect(reducerTest.productCard?.name).toBe('milk')
 })
 
-test('set product card', () => {
-    const reducerTest = reducer(state, setFavoritesProducts(productCard))
-    expect(reducerTest.FavoritesProducts.length).toBe(1)
-})
+// test('set product card', () => {
+//     const reducerTest = reducer(state, setFavoritesProducts(productCard))
+//     expect(reducerTest.FavoritesProducts.length).toBe(1)
+// })

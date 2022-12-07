@@ -4,8 +4,7 @@
   background-color: $bgColor !important;
   border-radius: 5px !important;
   z-index: 10;
-  width: 31.5px;
-  height: 31.5px;
+  @include squareSize(31.5px);
 
   &:hover {
     background-color: $bgColor;

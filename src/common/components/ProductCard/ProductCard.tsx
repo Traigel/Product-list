@@ -8,6 +8,7 @@ type ProductItemPropsType = {
     price: number
     like: boolean
     onClickButton?: () => void
+    onClickImg?: () => void
     classNameItemComponent?: string
     classNameImg?: string
     classNameTextName?: string
@@ -24,6 +25,7 @@ export const ProductCard = ({
                                 classNameButton,
                                 classNameIcon,
                                 onClickButton,
+                                onClickImg,
                                 img,
                                 name,
                                 price,
@@ -33,7 +35,12 @@ export const ProductCard = ({
     const favoriteItemComponentFinale = `${classNameItemComponent} ${styles.ItemComponent}`
 
     return <div className={favoriteItemComponentFinale}>
-        <img src={`https://testbackend.nc-one.com${img}`} alt={name} className={classNameImg}/>
+        <img
+            src={`https://testbackend.nc-one.com${img}`}
+            alt={name}
+            onClick={onClickImg}
+            className={classNameImg}
+        />
         <div className={styles.infoBox}>
             <div className={classNameTextName}>{name}</div>
             <div className={styles.priceBox}>

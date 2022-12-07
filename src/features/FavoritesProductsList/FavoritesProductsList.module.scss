@@ -13,16 +13,13 @@
 
     .title {
       font-weight: 600;
-      font-size: 24px;
-      line-height: 36px;
+      @include text(24px, 36px);
       letter-spacing: 0.05em;
       text-transform: uppercase;
       margin: 45px 0 27px 30px;
     }
 
     .list {
-
-
       .favoriteItemComponent {
         background-color: $secondBgColor;
         padding: 11px 15px;
@@ -30,30 +27,28 @@
       }
 
       .img {
-        width: 108px;
-        height: 108px;
+        @include squareSize(108px);
         border-radius: 30px;
         margin-right: 10px;
+        cursor: pointer;
       }
 
       .name {
-        font-size: 16px;
-        line-height: 24px;
+        @include text(16px, 24px);
+      }
+
+      .price {
+        font-weight: 500;
+        @include text(20px, 30px);
       }
 
       .button {
-        width: 26px;
-        height: 26px;
+        @include squareSize(26px);
       }
 
       .icon {
-        width: 20px;
-        height: 20px;
+        @include squareSize(20px);
       }
     }
   }
-
-
-
-
 }
