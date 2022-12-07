@@ -1,0 +1,17 @@
+.ItemComponent {
+  display: flex;
+  border-radius: 30px;
+
+  .infoBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .priceBox {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

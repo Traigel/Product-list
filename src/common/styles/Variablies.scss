@@ -1,6 +1,9 @@
 $textColor: #414141;
+$secondTextColor: #fff;
 $bgColor: #FFCC26;
 $secondBgColor: #FBFBFB;
+
+$headerHeight: 100px;
 
 @mixin text($color, $fontSize) {
   color: $color;

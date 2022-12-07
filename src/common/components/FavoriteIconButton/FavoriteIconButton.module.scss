@@ -1,0 +1,21 @@
+@import "../../styles/Variablies";
+
+.button {
+  background-color: $bgColor !important;
+  border-radius: 5px !important;
+  z-index: 10;
+  width: 31.5px;
+  height: 31.5px;
+
+  &:hover {
+    background-color: $bgColor;
+  }
+
+  .active {
+    color: $textColor;
+  }
+
+  .disabled {
+    color: $secondTextColor;
+  }
+}

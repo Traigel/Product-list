@@ -2,10 +2,11 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import {FixedSizeGrid as Grid, GridChildComponentProps} from 'react-window';
 import styles from './ProductList.module.scss';
 import {COLUMN_COUNT} from '../../common/constants';
-import {productsAPI, RootProductType} from '../../api';
+import {productsAPI} from '../../api';
 import React, {useEffect} from 'react';
-import {dispatch, setProductList, useStoreState} from '../../state';
-import {ProductItem} from './ProductItem/ProductItem';
+import {dispatch, ProductType, setProductList, useStoreState} from '../../state';
+import {ProductListItem} from './ProductItem/ProductListItem';
+import {windowSizeUtil} from '../../common/utils';
 
 export const ProductList = () => {
 
@@ -18,27 +19,32 @@ export const ProductList = () => {
             })
     }, [])
 
-    return <>
-        {productList &&
+    return <div className={styles.productListComponent}>
+        {productList.length &&
             <AutoSizer>
-                {({height, width}) => (
-                    <Grid
+                {({height, width}) => {
+
+                    const {columnWidth, rowHeight} = windowSizeUtil(width)
+
+                    return <Grid
                         className={styles.list}
                         itemData={productList}
                         columnCount={COLUMN_COUNT}
                         rowCount={Math.ceil(productList.length / COLUMN_COUNT)}
-                        columnWidth={262}
-                        rowHeight={350}
+                        columnWidth={columnWidth}
+                        rowHeight={rowHeight}
                         height={height}
-                        width={width / 4 * 3}
+                        width={width}
                     >
-                        {({columnIndex, rowIndex, style, data}: GridChildComponentProps<RootProductType[]>) => {
+                        {({columnIndex, rowIndex, style, data}: GridChildComponentProps<ProductType[]>) => {
                             const index = rowIndex * COLUMN_COUNT + columnIndex
-                            return <ProductItem item={data[index]} style={style}/>
+                            return <>
+                                {data[index] && <ProductListItem item={data[index]} style={style}/>}
+                            </>
                         }}
                     </Grid>
-                )}
+                }}
             </AutoSizer>
         }
-    </>
+    </div>
 }

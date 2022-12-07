@@ -1,0 +1,12 @@
+@import "../common/styles/Variablies";
+
+.app {
+  height: 100vh;
+  color: $textColor;
+
+  .main {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - #{$headerHeight});
+  }
+}

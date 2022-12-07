@@ -7,7 +7,7 @@ let productCard: RootProductType
 
 beforeEach(() => {
     state = {
-        productList: null,
+        productList: [],
         productCard: null,
         FavoritesProducts: []
     }

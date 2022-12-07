@@ -1,12 +1,42 @@
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: powderblue;
-  border: 1px dashed #414141;
-  text-align: center;
+@import "../../../common/styles/Variablies";
+
+.itemComponent {
+  width: 79%;
+  height: 76%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px dashed $textColor;
+  border-radius: 30px;
+  margin: 100px 15px 0;
+  padding: 15px;
+
+  .img {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+
+  .name {
+    width: 100%;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: left;
+  }
+
+  .priceBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .price {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      text-align: left;
+    }
+  }
 }
 
-.img {
-  width: 100px;
-  height: 100px;
-}
