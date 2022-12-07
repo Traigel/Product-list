@@ -2,12 +2,16 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import {FixedSizeGrid as Grid, GridChildComponentProps} from 'react-window';
 import styles from './ProductList.module.scss';
 import {COLUMN_COUNT} from '../../common/constants';
-import React from 'react';
-import {ProductType, useStoreState} from '../../state';
+import React, {useEffect} from 'react';
+import {dispatch, ProductType, setPage, useStoreState} from '../../state';
 import {ProductListItem} from './ProductItem/ProductListItem';
 import {windowSizeUtil} from '../../common/utils';
 
 export const ProductList = () => {
+
+    useEffect(() => {
+        dispatch(setPage('productList'))
+    }, [])
 
     const productList = useStoreState('productList')
 

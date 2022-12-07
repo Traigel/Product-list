@@ -4,4 +4,16 @@
   width: 100%;
   height: $headerHeight;
   background-color: $bgColor;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+
+  .title {
+    margin: 0 150px;
+    @include text(32px, 48px);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
 }

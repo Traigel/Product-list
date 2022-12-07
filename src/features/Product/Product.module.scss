@@ -1,13 +1,23 @@
 @import "../../common/styles/Variablies";
 
 .productComponent {
+  position: relative;
   width: 100%;
   margin: 100px;
   padding-top: 50px;
 
+  .back {
+    position: absolute;
+    top: -50px;
+    @include text(25px, 25px);
+    cursor: pointer;
+  }
+
   .img {
-    @include squareSize(450px);
-    margin-right: 20px;
+    width: 650px;
+    height: 100%;
+    margin-right: 30px;
+    object-fit: contain;
   }
 
   .name {

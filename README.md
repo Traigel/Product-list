@@ -10,6 +10,7 @@
 - Axios
 - React-window
 - React-virtualized-auto-sizer
+- React-image-magnify
 - Material-UI
 - SASS
 ---
