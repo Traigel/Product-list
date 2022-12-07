@@ -10,6 +10,8 @@
     position: absolute;
     top: -50px;
     @include text(25px, 25px);
+    font-family: 'Anek Telugu', sans-serif;
+    font-weight: 600;
     cursor: pointer;
   }
 
@@ -31,6 +33,7 @@
 
   .button {
     @include squareSize(85px);
+    border-radius: 20px !important;
   }
 
   .icon {

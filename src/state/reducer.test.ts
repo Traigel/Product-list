@@ -1,4 +1,4 @@
-import {InitialStateType, reducer, setProductCard, setProductList} from './index';
+import {InitialStateType, reducer, setPage, setProductCard, setProductLike, setProductList} from './index';
 import {RootProductType} from '../api';
 
 let state: InitialStateType
@@ -8,7 +8,15 @@ let productCard: RootProductType
 beforeEach(() => {
     state = {
         page: null,
-        productList: [],
+        productList: [
+            {
+                id: 5,
+                name: 'bread',
+                src: '',
+                price: 10,
+                like: false
+            }
+        ],
         productCard: null,
         FavoritesProducts: []
     }
@@ -16,7 +24,7 @@ beforeEach(() => {
         id: 1,
         name: 'milk',
         src: '',
-        price: 2
+        price: 4
     }
     productList = [
         productCard,
@@ -24,10 +32,22 @@ beforeEach(() => {
     ]
 })
 
+test('set page', () => {
+    const reducerTest = reducer(state, setPage('productList'))
+    expect(reducerTest.page).not.toBe(null)
+    expect(reducerTest.page).toBe('productList')
+})
+
 test('set product list', () => {
     const reducerTest = reducer(state, setProductList(productList))
-    expect(reducerTest.productList).not.toBe(null)
     expect(reducerTest.productList?.length).toBe(2)
+})
+
+test('set product like', () => {
+    const reducerTest = reducer(state, setProductLike(5, true))
+    expect(reducerTest.FavoritesProducts.length).toBe(1)
+    expect(reducerTest.FavoritesProducts[0].like).toBe(true)
+    expect(reducerTest.productList[0].like).toBe(true)
 })
 
 test('set product card', () => {
@@ -35,8 +55,3 @@ test('set product card', () => {
     expect(reducerTest.productCard).not.toBe(null)
     expect(reducerTest.productCard?.name).toBe('milk')
 })
-
-// test('set product card', () => {
-//     const reducerTest = reducer(state, setFavoritesProducts(productCard))
-//     expect(reducerTest.FavoritesProducts.length).toBe(1)
-// })

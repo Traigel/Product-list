@@ -34,12 +34,15 @@ export const reducer = (state = initialState, action: ActionType): InitialStateT
 
 // actions
 export const setPage = (page: PageType) => ({type: 'PRODUCT/SET-Page', page} as const)
+
 export const setProductList = (data: RootProductType[]) => ({type: 'PRODUCT/SET-PRODUCT-LIST', data} as const)
+
 export const setProductLike = (productID: number, like: boolean) => ({
     type: 'PRODUCT/SET-PRODUCT-LIKE',
     productID,
     like
 } as const)
+
 export const setProductCard = (data?: RootProductType) => ({type: 'SET-PRODUCT-CARD', data} as const)
 
 // createStore
@@ -47,10 +50,13 @@ export const {dispatch, useStoreState} = createStore<InitialStateType, ActionTyp
 
 // types
 export type InitialStateType = typeof initialState
+
 export type ProductType = RootProductType & {
     like: boolean
 }
+
 type PageType = 'productList' | 'product'
+
 type ActionType =
     | ReturnType<typeof setPage>
     | ReturnType<typeof setProductList>

@@ -7,11 +7,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  border-bottom: 1px solid $textColor;
 
 
   .title {
     margin: 0 150px;
     @include text(32px, 48px);
+    font-family: 'Anek Telugu', sans-serif;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;

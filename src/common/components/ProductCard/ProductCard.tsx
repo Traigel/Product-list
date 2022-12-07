@@ -50,7 +50,7 @@ export const ProductCard = ({
                     largeImage: {
                         src: `https://testbackend.nc-one.com${img}`,
                         width: 1000,
-                        height: 1000
+                        height: 1000,
                     }
                 }} />
                 <div className={styles.zoomIconBox}>
